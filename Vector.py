@@ -20,8 +20,8 @@ class Vector(object):
     def subtract(self, otherVector):
         return Vector(tuple(map(operator.sub, self.coordinates, otherVector.coordinates)))
 
-    def scalar_multiply(self, otherVector):
-        return Vector(tuple(map(operator.mul, self.coordinates, otherVector.coordinates)))
+    def scalar_multiply(self, factor):
+        return Vector([v * factor for v in self.coordinates])
 
     def __str__(self):
         return 'Vector: {}'.format(self.coordinates)
