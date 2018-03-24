@@ -27,7 +27,10 @@ class Vector(object):
         return round(math.sqrt(sum(round(p * p, 3) for p in self.coordinates)), 3)
 
     def normalize(self):
-        return self.scalar_multiply(1/self.magnitude())
+        try:
+            return self.scalar_multiply(1/self.magnitude())
+        except ZeroDivisionError:
+            raise Exception('This vector cannot be normalized. This can be a "zero" vector.')
 
     def __str__(self):
         return 'Vector: {}'.format(self.coordinates)
